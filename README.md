@@ -2,7 +2,7 @@
 
 ## Story
 
-- Using amazing ... react-create-app you'll get src folder containing following:
+- Using amazing tool [create-react-app](https://github.com/facebook/create-react-app) you'll get a source folder containing following files:
 
 ```sh
 .
@@ -14,7 +14,9 @@
 ├── logo.svg
 └── registerServiceWorker.js
 ```
-- After installing this package, one command produces following:
+
+- After installing this package, one command node ```./node_modules/cli-react-redux create firstcontainer MyApp``` produces following:
+
 ```sh
 .
 ├── App.css
@@ -50,33 +52,38 @@
 ├── rootSaga.js
 └── store.js
 ```
-## Usage
+## Install & Usage
 
 - Set up project using create-react-app.
 
 ```sh
 yarn add cli-react-redux
 ```
+
 - OR
+
 ```sh
 npm i -S cli-react-redux
 ```
 
 - You may want to remove App.js and App.test.js
+
 ```sh
 rm App.js
 rm App.test.js
 ```
 
 - Add dependencies required
+
 ```sh
 yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next
 ```
 
-- Add dependencies required for tests
+- Add dependencies required for unit tests
 ```sh
 yarn add enzyme enzyme-adapter-react-16
 ```
+
 - Set up enzyme adapter for React 16
 - Create file [project root]/config/jest.setup.js to project root,
 
@@ -115,12 +122,12 @@ and add follwoing linest to package.json
 
 Inside a project run
 ```sh
-./node_modules/cli-react-redux create firstcontainer MyApp
+node ./node_modules/cli-react-redux create firstcontainer MyApp
 ```
 
 Add another container
 ```sh
-./node_modules/cli-react-redux create firstcontainer Second
+node ./node_modules/cli-react-redux create firstcontainer Second
 ```
 
 For now reducer and saga have to be added manually to rootReducer and root Saga.
