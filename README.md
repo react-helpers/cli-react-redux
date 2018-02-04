@@ -85,7 +85,7 @@ yarn add enzyme enzyme-adapter-react-16
 ```
 
 - Set up enzyme adapter for React 16
-- Create file [project root]/config/jest.setup.js to project root,
+- Create file [project root]/config/jest.setup.js with the following content
 
 ```sh
 /* [project root]/config/jest.setup.js */
