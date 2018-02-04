@@ -97,7 +97,6 @@ and add follwoing linest to package.json
       "src/**/*.{js,jsx,mjs}",
       "!src/index.js",
       "!src/store.js",
-      "!src/i18n/index.js",
       "!src/registerServiceWorker.js"
     ],
     "coverageThreshold": {
@@ -109,8 +108,8 @@ and add follwoing linest to package.json
       }
     },
     "setupFiles": [
-      "<rootDir>/config/polyfills.js",
-      "<rootDir>/config/jest/setup.js"
+      ...
+      "<rootDir>/config/jest.setup.js"
     ],
 ```
 
