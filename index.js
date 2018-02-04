@@ -26,7 +26,7 @@ function createContainer() {
   create.sagaTestJs(nameArg);
   create.selectorsJs(nameArg);
   create.selectorsTestJs(nameArg);
-  // create.e2eTestJs(nameArg);
+  create.e2eTestJs(nameArg);
 }
 
 if (taskArg === 'create' && typeArg === 'firstcontainer') {
@@ -40,7 +40,7 @@ if (taskArg === 'create' && typeArg === 'firstcontainer') {
   create.navigatorTestJs(nameArg);
   create.appJs(nameArg);
   create.appTestJs(nameArg);
-  // create.WebdriverIOLocalConf();
+  create.WebdriverIOLocalConf();
 } else if (taskArg === 'create' && typeArg === 'container') {
   createContainer();
 }
