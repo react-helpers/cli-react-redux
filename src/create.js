@@ -339,7 +339,7 @@ module.exports.appTestJs = appTestJs;
 async function e2eTestJs(name) {
   try {
     const Name = name[0].toUpperCase() + name.slice(1);
-    const filePath = path.join(pwd, 'features', 'e2e', 'local', `${Name}.spec.js`);
+    const filePath = path.join(pwd, 'e2e', 'local', `${Name}.spec.js`);
     await fs.copy(
       path.join(cliDir, 'templates', 'e2e.spec'),
       filePath,
@@ -353,7 +353,7 @@ module.exports.e2eTestJs = e2eTestJs;
 
 async function WebdriverIOLocalConf() {
   try {
-    const filePath = path.join(pwd, 'features', 'e2e', 'local', 'wdio.local.conf.js');
+    const filePath = path.join(pwd, 'e2e', 'local', 'wdio.local.conf.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'wdio.local.conf.js'),
       filePath,
