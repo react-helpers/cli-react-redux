@@ -1,0 +1,29 @@
+import { select'<NameOf>', makeSelectData } from '../selectors';
+
+// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/selectors.test.js --env=jsdom
+describe('<'<NameOf>' /> selectors', () => {
+  describe('select'<NameOf>'', () => {
+    it('should select the '<nameOf>' state', () => {
+      const '<nameOf>'State = {
+        data: {},
+      };
+      const mockedState = {
+        '<nameOf>': '<nameOf>'State,
+      };
+      expect(select'<NameOf>'(mockedState)).toEqual('<nameOf>'State);
+    });
+  });
+
+  describe('makeSelectData', () => {
+    const dataSelector = makeSelectData();
+    it('should select the data', () => {
+      const data = { foo: 'bar' };
+      const mockedState = {
+        '<nameOf>': {
+          data,
+        },
+      };
+      expect(dataSelector(mockedState)).toEqual(data);
+    });
+  });
+});

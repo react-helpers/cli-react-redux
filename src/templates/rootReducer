@@ -1,0 +1,10 @@
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import '<nameOf>'Reducer from './containers/'<nameof>'/reducer';
+
+export default function rootReducer() {
+  return combineReducers({
+    routing: routerReducer,
+    '<nameOf>': '<nameOf>'Reducer,
+  });
+}

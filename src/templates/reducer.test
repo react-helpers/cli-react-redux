@@ -1,0 +1,27 @@
+import '<nameOf>'Reducer from '../reducer';
+import * as action from '../actions';
+
+// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/reducer.test.js --env=jsdom
+describe('<'<NameOf>' /> reducer', () => {
+  let state;
+  beforeEach(() => {
+    state = {
+      data: {},
+    };
+  });
+
+  it('should return the initial state', () => {
+    const expectedResult = state;
+    expect('<nameOf>'Reducer(undefined, {}))
+      .toEqual(expectedResult);
+  });
+
+  it('should handle the fetchDataSuccess action correctly', () => {
+    const fixture = { foo: 'bar' };
+    const expectedResult = {
+      data: fixture,
+    };
+    expect('<nameOf>'Reducer(state, action.fetchDataSuccess(fixture)))
+      .toEqual(expectedResult);
+  });
+});

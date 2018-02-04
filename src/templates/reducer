@@ -1,0 +1,22 @@
+import * as actionType from './actionTypes';
+
+const initialState = {
+  data: {},
+};
+
+const '<nameOf>'Reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionType.FETCH_DATA_SUCCESS: {
+      const data = action.payload.results;
+      return {
+        ...state,
+        data,
+      };
+    }
+
+    default:
+      return state;
+  }
+};
+
+export default '<nameOf>'Reducer;

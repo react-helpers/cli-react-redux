@@ -1,0 +1,30 @@
+{
+  "name": "cli-react-redux",
+  "version": "1.0.1",
+  "description": "React Redux CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-helpers/cli-react-redux"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "CLI",
+    "create-react-app",
+    "code generation",
+    "unit tests generation",
+    "e2e tests generation",
+    "Sagas",
+    "Reselect"
+  ],
+  "author": "sandermets0@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/react-helpers/es6-react-redux-cli/issues"
+  },
+  "homepage": "https://github.com/react-helpers/es6-react-redux-cli#readme"
+}

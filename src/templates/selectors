@@ -1,0 +1,8 @@
+import { createSelector } from 'reselect';
+
+export const select'<NameOf>' = state => state.'<nameOf>';
+
+export const makeSelectData = () => createSelector(
+  select'<NameOf>',
+  '<nameOf>' => '<nameOf>'.data,
+);

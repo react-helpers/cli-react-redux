@@ -1,0 +1,38 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class '<NameOf>' extends Component {
+  componentDidMount() {
+    const { fetchData } = this.props;
+    fetchData();
+  }
+
+  render() {
+    const { data } = this.props;
+    return (
+      <div className="'<nameof>'-container" data-test-id="'<nameof>'-container">
+        <p>
+          Hello
+        </p>
+        <ul>
+          {
+            Object.keys(data).map(key => (
+              <li key={key}>
+                <span>{key}</span>
+                <span>:</span>
+                <span>{data[key]}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    );
+  }
+}
+
+'<NameOf>'.propTypes = {
+  data: PropTypes.any,
+  fetchData: PropTypes.func,
+};
+
+export default '<NameOf>';

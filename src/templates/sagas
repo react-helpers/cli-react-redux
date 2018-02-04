@@ -1,0 +1,39 @@
+import { put, call, takeEvery } from 'redux-saga/effects';
+
+import * as actionType from './actionTypes';
+import * as action from './actions';
+
+export function* fetchDataAsync() {
+  try {
+    const url = 'https://api.github.com';
+    const endpoint = `${url}/`;
+    const fetchOpts = {
+      method: 'GET',
+      // headers: {
+      //   Accept: 'application/json',
+      //   mode: 'cors',
+      //   credentials: 'include',
+      //   'Content-Type': 'application/json',
+      // },
+    };
+    const response = yield call(fetch, endpoint, fetchOpts);
+    // console.log(response);
+    if (response.ok) {
+      // https://github.com/redux-saga/redux-saga/issues/1136
+      const results = yield call([response, response.json]);
+      // console.log(results);
+      yield put(action.fetchDataSuccess(results));
+    } else {
+      const error = new Error(`${response.status} ${response.statusText}`);
+      yield put(action.fetchDataFailure(error));
+      throw error;
+    }
+  } catch (error) {
+    yield put(action.reportError(error));
+    console.log(error);
+  }
+}
+
+export function* watch'<NameOf>'Sagas() {
+  yield takeEvery(actionType.FETCH_DATA_ASYNC, fetchDataAsync);
+}

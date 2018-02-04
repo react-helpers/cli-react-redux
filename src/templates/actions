@@ -1,0 +1,28 @@
+import * as actionType from './actionTypes';
+
+export function fetchDataAsync() {
+  return {
+    type: actionType.FETCH_DATA_ASYNC,
+  };
+}
+
+export function fetchDataSuccess(results) {
+  return {
+    type: actionType.FETCH_DATA_SUCCESS,
+    payload: { results },
+  };
+}
+
+export function fetchDataFailure(error) {
+  return {
+    type: actionType.FETCH_DATA_FAILURE,
+    payload: { error },
+  };
+}
+
+export function reportError(error) {
+  return {
+    type: actionType.REPORT_ERROR,
+    payload: { error },
+  };
+}

@@ -1,0 +1,15 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from '../App';
+
+// ./node_modules/.bin/jest ./src/__tests__/App.test.js --env=jsdom
+describe('<App />', () => {
+  it('renders without crashing', () => {
+    window.fetch = () => ({
+      ok: true,
+      json: () => ({ foo: 'bar' }),
+    });
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+  });
+});

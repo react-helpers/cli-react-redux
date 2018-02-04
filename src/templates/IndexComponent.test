@@ -1,0 +1,31 @@
+/* eslint-disable max-len */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import '<NameOf>' from '../'<NameOf>'';
+
+// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/'<NameOf>'.test.js --env=jsdom
+describe('<'<NameOf>' />', () => {
+  const propsMock = {
+    data: { foo: 'bar' },
+    fetchData: jest.fn(),
+  };
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<'<NameOf>' {...propsMock} />, div);
+  });
+
+  it('matches the snapshot', () => {
+    const componentSnapShot = renderer
+      .create(<'<NameOf>' {...propsMock} />)
+      .toJSON();
+    expect(componentSnapShot).toMatchSnapshot();
+  });
+
+  it('has data-test-id '<nameof>'-container"', () => {
+    const wrapper = mount(<'<NameOf>' {...propsMock} />);
+    expect(wrapper.find('.'<nameof>'-container').prop('data-test-id'))
+      .toEqual(''<nameof>'-container');
+  });
+});

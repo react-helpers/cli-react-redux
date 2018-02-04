@@ -1,0 +1,25 @@
+/* eslint-disable max-len */
+import * as action from '../actions';
+import '<NameOf>', { mapStateToProps, mapDispatchToProps } from '../index';
+
+// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/index.test.js --env=jsdom
+describe('<'<NameOf>' /> Connected', () => {
+  it('should export default connected <'<NameOf>' />', () => {
+    expect('<NameOf>'.displayName)
+      .toEqual('Connect('<NameOf>')');
+  });
+
+  it('should have mapStateToProps defined', () => {
+    expect(typeof mapStateToProps).toEqual('function');
+  });
+
+  it('should have mapDispatchToProps defined', () => {
+    expect(typeof mapDispatchToProps).toEqual('function');
+  });
+
+  it('should dispatch action fetchDataAsync when fetchData is being called', () => {
+    const dispatchMock = jest.fn();
+    mapDispatchToProps(dispatchMock).fetchData();
+    expect(dispatchMock).toBeCalledWith(action.fetchDataAsync());
+  });
+});
