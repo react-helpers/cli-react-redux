@@ -24,7 +24,7 @@
   "author": "sandermets0@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-helpers/es6-react-redux-cli/issues"
+    "url": "https://github.com/react-helpers/cli-react-redux/issues"
   },
-  "homepage": "https://github.com/react-helpers/es6-react-redux-cli#readme"
+  "homepage": "https://github.com/react-helpers/cli-react-redux#readme"
 }
