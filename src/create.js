@@ -336,31 +336,31 @@ async function appTestJs(name) {
 }
 module.exports.appTestJs = appTestJs;
 
-async function e2eTestJs(name) {
-  try {
-    const Name = name[0].toUpperCase() + name.slice(1);
-    const filePath = path.join(pwd, 'features', 'e2e', 'local', `${Name}.spec.js`);
-    await fs.copy(
-      path.join(cliDir, 'templates', 'e2e.spec'),
-      filePath,
-    );
-    await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.e2eTestJs = e2eTestJs;
+// async function e2eTestJs(name) {
+//   try {
+//     const Name = name[0].toUpperCase() + name.slice(1);
+//     const filePath = path.join(pwd, 'features', 'e2e', 'local', `${Name}.spec.js`);
+//     await fs.copy(
+//       path.join(cliDir, 'templates', 'e2e.spec'),
+//       filePath,
+//     );
+//     await replacePlaceHolders(filePath, name);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+// module.exports.e2eTestJs = e2eTestJs;
 
-async function WebdriverIOLocalConf(name) {
-  try {
-    const filePath = path.join(pwd, 'features', 'e2e', 'local', 'wdio.local.conf.js');
-    await fs.copy(
-      path.join(cliDir, 'templates', 'wdio.local.conf.js'),
-      filePath,
-    );
-    await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.WebdriverIOLocalConf = WebdriverIOLocalConf;
+// async function WebdriverIOLocalConf(name) {
+//   try {
+//     const filePath = path.join(pwd, 'features', 'e2e', 'local', 'wdio.local.conf.js');
+//     await fs.copy(
+//       path.join(cliDir, 'templates', 'wdio.local.conf.js'),
+//       filePath,
+//     );
+//     await replacePlaceHolders(filePath, name);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+// module.exports.WebdriverIOLocalConf = WebdriverIOLocalConf;
