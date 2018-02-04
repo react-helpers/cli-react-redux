@@ -23,6 +23,12 @@
   ],
   "author": "sandermets0@gmail.com",
   "license": "MIT",
+  "bin": {
+    "cli-react-redux": "./bin/cli-react-redux"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "bugs": {
     "url": "https://github.com/react-helpers/cli-react-redux/issues"
   },
