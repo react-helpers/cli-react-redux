@@ -351,7 +351,7 @@ async function e2eTestJs(name) {
 }
 module.exports.e2eTestJs = e2eTestJs;
 
-async function WebdriverIOLocalConf(name) {
+async function WebdriverIOLocalConf() {
   try {
     const filePath = path.join(pwd, 'features', 'e2e', 'local', 'wdio.local.conf.js');
     await fs.copy(
@@ -363,3 +363,16 @@ async function WebdriverIOLocalConf(name) {
   }
 }
 module.exports.WebdriverIOLocalConf = WebdriverIOLocalConf;
+
+async function setupTestsJs() {
+  try {
+    const filePath = path.join(pwd, 'src', 'setupTests.js');
+    await fs.copy(
+      path.join(cliDir, 'templates', 'setupTests.js'),
+      filePath,
+    );
+  } catch (error) {
+    console.error(error);
+  }
+}
+module.exports.setupTestsJs = setupTestsJs;

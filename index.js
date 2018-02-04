@@ -41,6 +41,7 @@ if (taskArg === 'create' && typeArg === 'firstcontainer') {
   create.appJs(nameArg);
   create.appTestJs(nameArg);
   create.WebdriverIOLocalConf();
+  create.setupTestsJs();
 } else if (taskArg === 'create' && typeArg === 'container') {
   createContainer();
 }
