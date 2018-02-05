@@ -36,10 +36,10 @@ By installing this package, your project structure will be updated as following:
 │   ├── rootReducer.test.js
 │   └── rootSaga.test.js
 ├── containers
-│   └── myapp
-│       ├── MyApp.js
+│   └── home
+│       ├── Home.js
 │       ├── __tests__
-│       │   ├── MyApp.test.js
+│       │   ├── Home.test.js
 │       │   ├── actionTypes.test.js
 │       │   ├── actions.test.js
 │       │   ├── index.test.js
