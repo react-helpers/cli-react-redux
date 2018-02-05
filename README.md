@@ -65,13 +65,13 @@ By installing this package, your project structure will be updated as following:
 
 Create a React project by using [react-create-app](https://github.com/facebook/create-react-app)
 ```sh
-$ npx create-react-app MyApp
+$ npx create-react-app my-app
 ```
 
 Create the main container
 
 ```sh
-$ npx cli-react-redux create firstcontainer MyApp
+$ npx cli-react-redux create firstcontainer Home
 ```
 
 Create secondary container(s) <br>
@@ -91,12 +91,7 @@ $ rm App.test.js
 Add required dependencies
 
 ```sh
-$ yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next
-```
-
-Add required dependencies for UNIT testing
-```sh
-$ yarn add enzyme enzyme-adapter-react-16
+$ yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
 ```
 
 Set up enzyme adapter for React 16 <br>
@@ -114,24 +109,21 @@ Enzyme.configure({ adapter: new Adapter() });
 and add follwoing linest to `package.json`
 ```sh
 "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}",
-      "!src/index.js",
-      "!src/store.js",
-      "!src/registerServiceWorker.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": -10
-      }
-    },
-    "setupFiles": [
-      ...
-      "<rootDir>/config/jest.setup.js"
-    ],
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,mjs}",
+    "!src/index.js",
+    "!src/store.js",
+    "!src/registerServiceWorker.js"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": -10
+    }
+  }
+}
 ```
 ## Licence
 
