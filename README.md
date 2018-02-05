@@ -1,8 +1,16 @@
 # cli-react-redux
 
-## Story
+## Table of contents
+  
+* [Quick Overview](#quick-overview)
+* [Install](#install)
+* [Licence](#licence)
 
-- Using amazing tool [create-react-app](https://github.com/facebook/create-react-app) you'll get a source folder containing following files:
+## Quick Overview
+
+CLI React Redux generates a project structure to make you able to save time and effort when starting a new React project. Not only does it create the strucure but also you get the initial functionality and tests that help you get started quickly even if you don't have much React experience yet.
+
+After you have created a new react app by using the amazing tool [create-react-app](https://github.com/facebook/create-react-app), the initial project structure will be generated as following:
 
 ```sh
 .
@@ -15,7 +23,7 @@
 └── registerServiceWorker.js
 ```
 
-- After installing this package, one command node ```./node_modules/cli-react-redux create firstcontainer MyApp``` produces following:
+By installing this package, your project structure will be updated as following:
 
 ```sh
 .
@@ -52,40 +60,47 @@
 ├── rootSaga.js
 └── store.js
 ```
-## Install & Usage
 
-- Set up project using create-react-app.
+## Install
 
+Create a React project by using [react-create-app](https://github.com/facebook/create-react-app)
 ```sh
-yarn add cli-react-redux
+$ npx create-react-app MyApp
 ```
 
-- OR
+Create the main container
 
 ```sh
-npm i -S cli-react-redux
+$ npx cli-react-redux create firstcontainer MyApp
 ```
 
-- You may want to remove App.js and App.test.js
+Create secondary container(s) <br>
+_For now reducer and saga have to be added manually to `rootReducer.js` and `rootSaga.js`._
 
 ```sh
-rm App.js
-rm App.test.js
+$ npx cli-react-redux create container Second
 ```
 
-- Add dependencies required
+You may want to remove App.js and App.test.js
 
 ```sh
-yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next
+$ rm App.js
+$ rm App.test.js
 ```
 
-- Add dependencies required for unit tests
+Add required dependencies
+
 ```sh
-yarn add enzyme enzyme-adapter-react-16
+$ yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next
 ```
 
-- Set up enzyme adapter for React 16
-- Create file [project root]/config/jest.setup.js with the following content
+Add required dependencies for UNIT testing
+```sh
+$ yarn add enzyme enzyme-adapter-react-16
+```
+
+Set up enzyme adapter for React 16 <br>
+Create file `[project root]/config/jest.setup.js` with the following content
 
 ```sh
 /* [project root]/config/jest.setup.js */
@@ -94,10 +109,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 
 Enzyme.configure({ adapter: new Adapter() });
-
 ```
 
-and add follwoing linest to package.json 
+and add follwoing linest to `package.json`
 ```sh
 "jest": {
     "collectCoverageFrom": [
@@ -119,15 +133,6 @@ and add follwoing linest to package.json
       "<rootDir>/config/jest.setup.js"
     ],
 ```
+## Licence
 
-Inside a project run
-```sh
-node ./node_modules/cli-react-redux create firstcontainer MyApp
-```
-
-Add another container
-```sh
-node ./node_modules/cli-react-redux create firstcontainer Second
-```
-
-For now reducer and saga have to be added manually to rootReducer and root Saga.
+Licensed under the MIT license.
