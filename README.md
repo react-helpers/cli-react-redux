@@ -75,6 +75,11 @@ $ rm App.js
 $ rm App.test.js
 ```
 
+It is recommended to install yarn
+```sh
+npm i -g yarn
+```
+
 Create the main container
 
 ```sh
@@ -95,7 +100,7 @@ $ yarn add redux redux-saga react-redux reselect history react-router-dom react-
 ```
 
 Add the following lines to `package.json` for code coverage
-```sh
+```js
 "jest": {
   "collectCoverageFrom": [
     "src/**/*.{js,jsx,mjs}",
