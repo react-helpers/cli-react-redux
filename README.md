@@ -68,6 +68,13 @@ Create a React project by using [react-create-app](https://github.com/facebook/c
 $ npx create-react-app my-app
 ```
 
+You may want to remove App.js and App.test.js
+
+```sh
+$ rm App.js
+$ rm App.test.js
+```
+
 Create the main container
 
 ```sh
@@ -81,32 +88,13 @@ _For now reducer and saga have to be added manually to `rootReducer.js` and `roo
 $ npx cli-react-redux create container Second
 ```
 
-You may want to remove App.js and App.test.js
-
-```sh
-$ rm App.js
-$ rm App.test.js
-```
-
 Add required dependencies
 
 ```sh
 $ yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
 ```
 
-Set up enzyme adapter for React 16 <br>
-Create file `[project root]/config/jest.setup.js` with the following content
-
-```sh
-/* [project root]/config/jest.setup.js */
-
-import Adapter from 'enzyme-adapter-react-16';
-import Enzyme from 'enzyme';
-
-Enzyme.configure({ adapter: new Adapter() });
-```
-
-and add follwoing linest to `package.json`
+Add the following lines to `package.json` for code coverage
 ```sh
 "jest": {
   "collectCoverageFrom": [
