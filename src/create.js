@@ -154,34 +154,6 @@ async function actionTypesTestJs(name) {
 }
 module.exports.actionTypesTestJs = actionTypesTestJs;
 
-async function actionsJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'actions.js');
-    await fs.copy(
-      path.join(cliDir, 'templates', 'actions'),
-      filePath,
-    );
-    await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.actionsJs = actionsJs;
-
-async function actionsTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'actions.test.js');
-    await fs.copy(
-      path.join(cliDir, 'templates', 'actions.test'),
-      filePath,
-    );
-    await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.actionsTestJs = actionsTestJs;
-
 async function selectorsJs(name) {
   try {
     const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'selectors.js');
