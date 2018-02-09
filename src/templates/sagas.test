@@ -1,13 +1,14 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { fetchDataAsync, watch'<NameOf>'Sagas } from '../sagas';
-import * as action from '../actions';
 import * as actionType from '../actionTypes';
 
 // ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/sagas.test.js --env=jsdom
 describe('<'<NameOf>' /> sagas', () => {
   describe('fetchDataAsync', () => {
     it('ends with fetchDataSuccess if successful API call', () => {
-      const generator = fetchDataAsync(action.fetchDataAsync());
+      const generator = fetchDataAsync({
+        type: actionType.FETCH_DATA_ASYNC,
+      });
       const url = 'https://api.github.com';
       const endpoint = `${url}/`;
       const fetchOpts = { method: 'GET' };
@@ -20,12 +21,17 @@ describe('<'<NameOf>' /> sagas', () => {
         .toEqual(call([responseMock, responseMock.json]));
       const resultsMock = { bar: 'foo' };
       expect(generator.next(resultsMock).value)
-        .toEqual(put(action.fetchDataSuccess(resultsMock)));
+        .toEqual(put({
+          type: actionType.FETCH_DATA_SUCCESS,
+          payload: { results: resultsMock },
+        }));
       expect(generator.next().done).toEqual(true);
     });
 
     it('fires fetchDataFailure and reportError if unsuccessful fetch', () => {
-      const generator = fetchDataAsync(action.fetchDataAsync());
+      const generator = fetchDataAsync({
+        type: actionType.FETCH_DATA_ASYNC
+      });
       const url = 'https://api.github.com';
       const endpoint = `${url}/`;
       const fetchOpts = { method: 'GET' };
@@ -37,9 +43,15 @@ describe('<'<NameOf>' /> sagas', () => {
       };
       const errorMock = new Error(`${responseMock.status} ${responseMock.statusText}`);
       expect(generator.next(responseMock).value)
-        .toEqual(put(action.fetchDataFailure(errorMock)));
+        .toEqual(put({
+          type: actionType.FETCH_DATA_FAILURE,
+          payload: { error: errorMock },
+        }));
       expect(generator.next().value)
-        .toEqual(put(action.reportError(errorMock)));
+        .toEqual(put({
+          type: actionType.REPORT_ERROR,
+          payload: { error: errorMock },
+        }));
       expect(generator.next().done).toEqual(true);
     });
   });

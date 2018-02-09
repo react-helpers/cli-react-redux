@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import * as action from '../actions';
+import * as actionType from '../actionTypes';
 import '<NameOf>', { mapStateToProps, mapDispatchToProps } from '../index';
 
 // ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/index.test.js --env=jsdom
@@ -20,6 +20,8 @@ describe('<'<NameOf>' /> Connected', () => {
   it('should dispatch action fetchDataAsync when fetchData is being called', () => {
     const dispatchMock = jest.fn();
     mapDispatchToProps(dispatchMock).fetchData();
-    expect(dispatchMock).toBeCalledWith(action.fetchDataAsync());
+    expect(dispatchMock).toBeCalledWith({
+      type: actionType.FETCH_DATA_ASYNC,
+    });
   });
 });

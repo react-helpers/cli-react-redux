@@ -1,5 +1,5 @@
 import '<nameOf>'Reducer from '../reducer';
-import * as action from '../actions';
+import * as actionType from '../actionTypes';
 
 // ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/reducer.test.js --env=jsdom
 describe('<'<NameOf>' /> reducer', () => {
@@ -21,7 +21,11 @@ describe('<'<NameOf>' /> reducer', () => {
     const expectedResult = {
       data: fixture,
     };
-    expect('<nameOf>'Reducer(state, action.fetchDataSuccess(fixture)))
+
+    expect('<nameOf>'Reducer(state, {
+      type: actionType.FETCH_DATA_SUCCESS,
+      payload: { results: fixture },
+    }))
       .toEqual(expectedResult);
   });
 });

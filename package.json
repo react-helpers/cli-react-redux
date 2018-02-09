@@ -22,6 +22,9 @@
     "Reselect"
   ],
   "author": "sandermets0@gmail.com",
+  "contributors": [
+    "Kaspar Vihm <kaspar.vihm@gmail.com> (https://github.com/kasparvihm)"
+  ],
   "license": "MIT",
   "bin": {
     "cli-react-redux": "./bin/cli-react-redux"

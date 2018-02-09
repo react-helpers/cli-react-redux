@@ -41,13 +41,11 @@ By installing this package, your project structure will be updated as following:
 │       ├── __tests__
 │       │   ├── Home.test.js
 │       │   ├── actionTypes.test.js
-│       │   ├── actions.test.js
 │       │   ├── index.test.js
 │       │   ├── reducer.test.js
 │       │   ├── sagas.test.js
 │       │   └── selectors.test.js
 │       ├── actionTypes.js
-│       ├── actions.js
 │       ├── index.js
 │       ├── reducer.js
 │       ├── sagas.js
@@ -68,7 +66,7 @@ Create a React project by using [react-create-app](https://github.com/facebook/c
 $ npx create-react-app my-app
 ```
 
-You may want to remove App.js and App.test.js
+You may want to remove `App.js` and `App.test.js` from the `src` folder:
 
 ```sh
 $ rm App.js
@@ -77,7 +75,7 @@ $ rm App.test.js
 
 It is recommended to install yarn
 ```sh
-npm i -g yarn
+$ npm i -g yarn
 ```
 
 Create the main container

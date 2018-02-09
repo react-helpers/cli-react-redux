@@ -1,7 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
-
 import * as actionType from './actionTypes';
-import * as action from './actions';
 
 export function* fetchDataAsync() {
   try {
@@ -9,27 +7,27 @@ export function* fetchDataAsync() {
     const endpoint = `${url}/`;
     const fetchOpts = {
       method: 'GET',
-      // headers: {
-      //   Accept: 'application/json',
-      //   mode: 'cors',
-      //   credentials: 'include',
-      //   'Content-Type': 'application/json',
-      // },
     };
     const response = yield call(fetch, endpoint, fetchOpts);
-    // console.log(response);
     if (response.ok) {
-      // https://github.com/redux-saga/redux-saga/issues/1136
       const results = yield call([response, response.json]);
-      // console.log(results);
-      yield put(action.fetchDataSuccess(results));
+      yield put({
+        type: actionType.FETCH_DATA_SUCCESS,
+        payload: { results },
+      });
     } else {
       const error = new Error(`${response.status} ${response.statusText}`);
-      yield put(action.fetchDataFailure(error));
+      yield put({
+        type: actionType.FETCH_DATA_FAILURE,
+        payload: { error },
+      });
       throw error;
     }
   } catch (error) {
-    yield put(action.reportError(error));
+    yield put({
+      type: actionType.REPORT_ERROR,
+      payload: { error },
+    });
     console.log(error);
   }
 }

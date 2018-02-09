@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import * as action from './actions';
+import * as actionType from './actionTypes';
 import * as selector from './selectors';
 import '<NameOf>' from './'<NameOf>'';
 
@@ -9,7 +9,9 @@ export const mapStateToProps = createStructuredSelector({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  fetchData: () => dispatch(action.fetchDataAsync()),
+  fetchData: () => dispatch({
+    type: actionType.FETCH_DATA_ASYNC,
+  }),
 });
 
 export default connect(
