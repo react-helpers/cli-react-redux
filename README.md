@@ -102,7 +102,6 @@ Add the following lines to `package.json` for code coverage
   "collectCoverageFrom": [
     "src/**/*.{js,jsx,mjs}",
     "!src/index.js",
-    "!src/store.js",
     "!src/registerServiceWorker.js"
   ],
   "coverageThreshold": {
@@ -118,7 +117,7 @@ Add the following lines to `package.json` for code coverage
 
 Run unit tests
 ```sh
-yarn test
+yarn test --coverage
 ```
 
 Run

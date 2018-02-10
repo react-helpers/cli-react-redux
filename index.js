@@ -34,6 +34,7 @@ if (taskArg === 'create' && typeArg === 'firstcontainer') {
   create.rootSagaJs(nameArg);
   create.rootSagaTestJs(nameArg);
   create.storeJs(nameArg);
+  create.storeTestJs(nameArg);
   create.navigatorJs(nameArg);
   create.navigatorTestJs(nameArg);
   create.appJs(nameArg);

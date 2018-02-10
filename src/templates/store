@@ -5,50 +5,66 @@ import createHistory from 'history/createBrowserHistory'; // eslint-disable-line
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 
-export const storeElements = {
+export const rdx = {
+  initialState: {},
+  enhancers: [],
   history: undefined,
   store: undefined,
-};
+  createHistory,
+  sagaMiddleware: undefined,
+  createSagaMiddleware,
+  middleware: undefined,
+  routerMiddleware,
+  appliedMiddleware: undefined,
+  compose,
+  composedEnhancers: undefined,
+  applyMiddleware,
+  createStore,
+  rootReducer,
+  rootSaga,
+}
 
 export default function configureStore() {
-  storeElements.history = createHistory();
+  rdx.history = rdx.createHistory();
 
-  const initialState = {};
-  const enhancers = [];
-  const sagaMiddleware = createSagaMiddleware();
-  const middleware = [
-    sagaMiddleware,
-    routerMiddleware(storeElements.history),
+  rdx.sagaMiddleware = rdx.createSagaMiddleware();
+  rdx.middleware = [
+    rdx.sagaMiddleware,
+    rdx.routerMiddleware(rdx.history),
   ];
 
   if (process.env.NODE_ENV === 'development') {
     const { devToolsExtension } = window;
     if (typeof devToolsExtension === 'function') {
-      enhancers.push(devToolsExtension());
+      rdx.enhancers.push(devToolsExtension());
     }
   }
 
-  const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers,
+  rdx.appliedMiddleware = rdx.applyMiddleware(...rdx.middleware);
+  rdx.composedEnhancers = rdx.compose(
+    rdx.appliedMiddleware,
+    ...rdx.enhancers,
   );
 
-  storeElements.store = createStore(
-    rootReducer(),
-    initialState,
-    composedEnhancers,
+  rdx.store = rdx.createStore(
+    rdx.rootReducer(),
+    rdx.initialState,
+    rdx.composedEnhancers,
   );
 
-  sagaMiddleware.run(rootSaga);
+  rdx.sagaMiddleware.run(rdx.rootSaga);
 }
+rdx.configureStore = configureStore;
 
 export function getStore() {
-  if(!storeElements.store) {
-    configureStore();
+  if (!rdx.store) {
+    rdx.configureStore();
   }
-  return storeElements.store;
+  return rdx.store;
 }
+rdx.getStore = getStore;
 
 export function getHistory() {
-  return storeElements.history;
+  return rdx.history;
 }
+rdx.getHistory = getHistory;
