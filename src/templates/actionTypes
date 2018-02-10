@@ -1,5 +1,3 @@
-export const REPORT_ERROR = 'REPORT_ERROR';
-
 export const FETCH_DATA_ASYNC = ''<nameOf>'/FETCH_DATA_ASYNC';
 export const FETCH_DATA_SUCCESS = ''<nameOf>'/FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = ''<nameOf>'/FETCH_DATA_FAILURE';

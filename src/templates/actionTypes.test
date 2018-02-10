@@ -3,11 +3,6 @@ import * as actionType from '../actionTypes';
 
 // ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/actionTypes.test.js --env=jsdom
 describe('<'<NameOf>' /> actionTypes', () => {
-  it('should have REPORT_ERROR exporting REPORT_ERROR', () => {
-    expect(actionType.REPORT_ERROR)
-      .toEqual('REPORT_ERROR');
-  });
-
   it('should have FETCH_DATA_ASYNC exporting '<nameOf>'/FETCH_DATA_ASYNC', () => {
     expect(actionType.FETCH_DATA_ASYNC)
       .toEqual(''<nameOf>'/FETCH_DATA_ASYNC');
