@@ -3,7 +3,7 @@ import { all } from 'redux-saga/effects';
 import { watch'<NameOf>'Sagas } from '../containers/'<nameof>'/sagas';
 import rootSaga from '../rootSaga';
 
-// ./node_modules/.bin/jest ./src/__tests__/rootSaga.test.js --env=jsdom
+// yarn test ./src/__tests__/rootSaga.test.js --coverage
 describe('rootSaga', () => {
   it('starts to watch Sagas', () => {
     const generator = rootSaga();

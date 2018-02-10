@@ -1,6 +1,6 @@
 import { select'<NameOf>', makeSelectData } from '../selectors';
 
-// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/selectors.test.js --env=jsdom
+// yarn test ./src/containers/'<nameof>'/__tests__/selectors.test.js --coverage
 describe('<'<NameOf>' /> selectors', () => {
   describe('select'<NameOf>'', () => {
     it('should select the '<nameOf>' state', () => {

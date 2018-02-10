@@ -1,6 +1,6 @@
 import rootReducer from '../rootReducer';
 
-// ./node_modules/.bin/jest ./src/__tests__/rootReducer.test.js --env=jsdom
+// yarn test ./src/__tests__/rootReducer.test.js --coverage
 describe('rootReducer', () => {
   it('exists', () => {
     expect(typeof rootReducer).toEqual('function');

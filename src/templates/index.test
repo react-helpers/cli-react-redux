@@ -2,7 +2,7 @@
 import * as actionType from '../actionTypes';
 import '<NameOf>', { mapStateToProps, mapDispatchToProps } from '../index';
 
-// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/index.test.js --env=jsdom
+// yarn test ./src/containers/'<nameof>'/__tests__/index.test.js --coverage
 describe('<'<NameOf>' /> Connected', () => {
   it('should export default connected <'<NameOf>' />', () => {
     expect('<NameOf>'.displayName)

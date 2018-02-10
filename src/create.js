@@ -252,6 +252,20 @@ async function storeJs(name) {
 }
 module.exports.storeJs = storeJs;
 
+async function storeTestJs(name) {
+  try {
+    const filePath = path.join(pwd, 'src',  '__tests__', 'store.test.js');
+    await fs.copy(
+      path.join(cliDir, 'templates', 'store.test'),
+      filePath,
+    );
+    await replacePlaceHolders(filePath, name);
+  } catch (error) {
+    console.error(error);
+  }
+}
+module.exports.storeTestJs = storeTestJs;
+
 async function navigatorJs(name) {
   try {
     const filePath = path.join(pwd, 'src', 'Navigator.js');
