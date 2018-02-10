@@ -17,12 +17,13 @@ async function replacePlaceHolders(filePath, name) {
 
   await fs.writeFile(filePath, result, 'utf8');
 }
+module.exports.replacePlaceHolders = replacePlaceHolders;
 
 async function indexJs(name) {
   try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'index.js');
-    await fs.copy(path.join(cliDir, 'templates', 'index'), filePath);
-    await replacePlaceHolders(filePath, name);
+    // const filePath = path.join('', 'src', 'containers', name.toLowerCase(), 'index.js');
+    // await fs.copy(path.join(cliDir, 'templates', 'index'), filePath);
+    // await module.exports.replacePlaceHolders(filePath, name);
   } catch (error) {
     console.error(error);
   }
