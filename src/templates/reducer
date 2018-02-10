@@ -7,7 +7,7 @@ const initialState = {
 const '<nameOf>'Reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.FETCH_DATA_SUCCESS: {
-      const data = action.payload.results;
+      const { data } = action.payload.results;
       return {
         ...state,
         data,

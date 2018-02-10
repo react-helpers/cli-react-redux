@@ -5,35 +5,50 @@ import createHistory from 'history/createBrowserHistory'; // eslint-disable-line
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 
-export const history = createHistory();
+export const storeElements = {
+  history: undefined,
+  store: undefined,
+};
 
-const initialState = {};
-const enhancers = [];
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [
-  sagaMiddleware,
-  routerMiddleware(history),
-];
+export default function configureStore() {
+  storeElements.history = createHistory();
 
-if (process.env.NODE_ENV === 'development') {
-  const { devToolsExtension } = window;
-  if (typeof devToolsExtension === 'function') {
-    enhancers.push(devToolsExtension());
+  const initialState = {};
+  const enhancers = [];
+  const sagaMiddleware = createSagaMiddleware();
+  const middleware = [
+    sagaMiddleware,
+    routerMiddleware(storeElements.history),
+  ];
+
+  if (process.env.NODE_ENV === 'development') {
+    const { devToolsExtension } = window;
+    if (typeof devToolsExtension === 'function') {
+      enhancers.push(devToolsExtension());
+    }
   }
+
+  const composedEnhancers = compose(
+    applyMiddleware(...middleware),
+    ...enhancers,
+  );
+
+  storeElements.store = createStore(
+    rootReducer(),
+    initialState,
+    composedEnhancers,
+  );
+
+  sagaMiddleware.run(rootSaga);
 }
 
-const composedEnhancers = compose(
-  applyMiddleware(...middleware),
-  ...enhancers,
-);
+export function getStore() {
+  if(!storeElements.store) {
+    configureStore();
+  }
+  return storeElements.store;
+}
 
-const store = createStore(
-  rootReducer(),
-  initialState,
-  composedEnhancers,
-);
-
-sagaMiddleware.run(rootSaga);
-export default function getStore() {
-  return store;
+export function getHistory() {
+  return storeElements.history;
 }
