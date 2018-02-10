@@ -17,7 +17,6 @@ async function replacePlaceHolders(filePath, name) {
 
   await fs.writeFile(filePath, result, 'utf8');
 }
-module.exports.replacePlaceHolders = replacePlaceHolders;
 
 async function indexJs(name) {
   try {
