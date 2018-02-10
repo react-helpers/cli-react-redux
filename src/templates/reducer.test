@@ -17,9 +17,9 @@ describe('<'<NameOf>' /> reducer', () => {
   });
 
   it('should handle the fetchDataSuccess action correctly', () => {
-    const fixture = { foo: 'bar' };
+    const fixture = { data: { foo: 'bar' } };
     const expectedResult = {
-      data: fixture,
+      data: fixture.data,
     };
 
     expect('<nameOf>'Reducer(state, {

@@ -3,11 +3,11 @@ import React from 'react';
 import { ConnectedRouter } from 'react-router-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { history } from './store';
+import { getHistory } from './store';
 import '<NameOf>' from './containers/'<nameof>'';
 
 const Navigator = () => (
-  <ConnectedRouter history={history}>
+  <ConnectedRouter history={getHistory()}>
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={'<NameOf>'} />

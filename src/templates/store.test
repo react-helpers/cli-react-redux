@@ -1,0 +1,30 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import config from '../config';
+import configureStore, { getStore } from '../store';
+
+// yarn test ./src/__tests__/store.test.js --coverage
+describe('getStore', () => {
+  it('returns store', () => {
+    configureStore();
+    const store = getStore();
+    expect(typeof store.dispatch).toEqual('function');
+    expect(typeof store.subscribe).toEqual('function');
+    expect(typeof store.getState).toEqual('function');
+  });
+
+  it('adds devToolsExtension to enhanchers if NODE_ENV is development', () => {
+    // process.env.NODE_ENV = 'development';
+    // Object.defineProperty(window, 'devToolsExtension', {
+    //   writable: true,
+    //   value: jest.fn(),
+    // });
+    // configureStore();
+    // const devToolsExtension = jest.fn()
+    // window.devToolsExtension = devToolsExtension;
+    // getStore();
+
+    // expect(window.devToolsExtension).toHaveBeenCalled();
+    // process.env.NODE_ENV = env;
+  });
+});
