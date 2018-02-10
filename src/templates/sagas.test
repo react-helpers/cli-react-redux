@@ -30,6 +30,7 @@ describe('<'<NameOf>' /> sagas', () => {
       const error = { foo: 'bar' };
       expect(generator.throw(error).value)
         .toEqual(put({ type: actionType.FETCH_DATA_FAILURE, payload: error }));
+
       expect(generator.next().done).toEqual(true);
     });
   });
@@ -37,8 +38,10 @@ describe('<'<NameOf>' /> sagas', () => {
   describe('watch'<NameOf>'Sagas', () => {
     it('listens on FETCH_DATA_ASYNC to fire fetchDataAsync', () => {
       const generator = watch'<NameOf>'Sagas();
+
       expect(generator.next().value)
         .toEqual(takeEvery(actionType.FETCH_DATA_ASYNC, fetchDataAsync));
+
       expect(generator.next().done).toEqual(true);
     });
   });
