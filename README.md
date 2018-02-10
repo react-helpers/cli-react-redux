@@ -85,16 +85,15 @@ $ npx cli-react-redux create firstcontainer Home
 ```
 
 Create secondary container(s) <br>
-_For now reducer and saga have to be added manually to `rootReducer.js` and `rootSaga.js`._
-
 ```sh
 $ npx cli-react-redux create container Second
 ```
+_For now reducer and saga have to be added manually to `rootReducer.js` and `rootSaga.js`._
 
 Add required dependencies
 
 ```sh
-$ yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
+$ yarn add axios redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
 ```
 
 Add the following lines to `package.json` for code coverage
@@ -116,6 +115,22 @@ Add the following lines to `package.json` for code coverage
   }
 }
 ```
+
+Run unit tests
+```sh
+yarn test
+```
+
+Run
+```sh
+yarn start
+```
+
+### e2e aka UI tests
+
+There is also a UI test generated while creating a container. Test resides in e2e folder along with wdio conf file. We're using mocha as a testrunner, hence there's mocha timeout option set. See [webdriver.io](http://webdriver.io/guide.html) for more information hot to run and set up UI tests.
+
+If you are fan of testing and QA and would want to know more about available testing technologies and patterns then take a look [An Overview of Javascript Testing in 2018](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3)
 ## Licence
 
 Licensed under the MIT license.
