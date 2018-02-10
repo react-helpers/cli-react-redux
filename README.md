@@ -85,16 +85,15 @@ $ npx cli-react-redux create firstcontainer Home
 ```
 
 Create secondary container(s) <br>
-_For now reducer and saga have to be added manually to `rootReducer.js` and `rootSaga.js`._
-
 ```sh
 $ npx cli-react-redux create container Second
 ```
+_For now reducer and saga have to be added manually to `rootReducer.js` and `rootSaga.js`._
 
 Add required dependencies
 
 ```sh
-$ yarn add redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
+$ yarn add axios redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
 ```
 
 Add the following lines to `package.json` for code coverage
@@ -116,6 +115,17 @@ Add the following lines to `package.json` for code coverage
   }
 }
 ```
+
+Run unit tests
+```sh
+yarn test
+```
+
+Run
+```sh
+yarn start
+```
+
 ## Licence
 
 Licensed under the MIT license.
