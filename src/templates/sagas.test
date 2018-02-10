@@ -3,7 +3,7 @@ import axios from 'axios';
 import { fetchDataAsync, watch'<NameOf>'Sagas } from '../sagas';
 import * as actionType from '../actionTypes';
 
-// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/sagas.test.js --env=jsdom
+// yarn test ./src/containers/'<nameof>'/__tests__/sagas.test.js --coverage
 describe('<'<NameOf>' /> sagas', () => {
   describe('fetchDataAsync', () => {
     it('ends with fetchDataSuccess if successful API call', () => {

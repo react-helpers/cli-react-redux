@@ -1,7 +1,7 @@
 import '<nameOf>'Reducer from '../reducer';
 import * as actionType from '../actionTypes';
 
-// ./node_modules/.bin/jest ./src/containers/'<nameof>'/__tests__/reducer.test.js --env=jsdom
+// yarn test ./src/containers/'<nameof>'/__tests__/reducer.test.js --coverage
 describe('<'<NameOf>' /> reducer', () => {
   let state;
   beforeEach(() => {
