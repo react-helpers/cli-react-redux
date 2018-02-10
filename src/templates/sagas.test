@@ -6,52 +6,30 @@ import * as actionType from '../actionTypes';
 describe('<'<NameOf>' /> sagas', () => {
   describe('fetchDataAsync', () => {
     it('ends with fetchDataSuccess if successful API call', () => {
-      const generator = fetchDataAsync({
-        type: actionType.FETCH_DATA_ASYNC,
-      });
+      const generator = fetchDataAsync({ type: actionType.FETCH_DATA_ASYNC });
+
       const url = 'https://api.github.com';
-      const endpoint = `${url}/`;
-      const fetchOpts = { method: 'GET' };
-      expect(generator.next().value).toEqual(call(fetch, endpoint, fetchOpts));
-      const responseMock = {
-        ok: true,
-        json: jest.fn(),
-      };
-      expect(generator.next(responseMock).value)
-        .toEqual(call([responseMock, responseMock.json]));
-      const resultsMock = { bar: 'foo' };
+      expect(generator.next().value).toEqual(call(axios.get, url));
+
+      const resultsMock = { data: { foo: 'bar' } };
       expect(generator.next(resultsMock).value)
         .toEqual(put({
           type: actionType.FETCH_DATA_SUCCESS,
           payload: { results: resultsMock },
         }));
+
       expect(generator.next().done).toEqual(true);
     });
 
-    it('fires fetchDataFailure and reportError if unsuccessful fetch', () => {
-      const generator = fetchDataAsync({
-        type: actionType.FETCH_DATA_ASYNC
-      });
+    it('ends with fetchDataSuccess if successful API call', () => {
+      const generator = fetchDataAsync({ type: actionType.FETCH_DATA_ASYNC });
+
       const url = 'https://api.github.com';
-      const endpoint = `${url}/`;
-      const fetchOpts = { method: 'GET' };
-      expect(generator.next().value).toEqual(call(fetch, endpoint, fetchOpts));
-      const responseMock = {
-        ok: false,
-        status: 400,
-        statusText: 'fail',
-      };
-      const errorMock = new Error(`${responseMock.status} ${responseMock.statusText}`);
-      expect(generator.next(responseMock).value)
-        .toEqual(put({
-          type: actionType.FETCH_DATA_FAILURE,
-          payload: { error: errorMock },
-        }));
-      expect(generator.next().value)
-        .toEqual(put({
-          type: actionType.REPORT_ERROR,
-          payload: { error: errorMock },
-        }));
+      expect(generator.next().value).toEqual(call(axios.get, url));
+
+      const error = { foo: 'bar' };
+      expect(generator.throw(error).value)
+        .toEqual(put({ type: actionType.FETCH_DATA_FAILURE, payload: error }));
       expect(generator.next().done).toEqual(true);
     });
   });
