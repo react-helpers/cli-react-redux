@@ -18,7 +18,7 @@ export default function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [
     sagaMiddleware,
-    routerMiddleware(history),
+    routerMiddleware(storeElements.history),
   ];
 
   if (process.env.NODE_ENV === 'development') {
@@ -50,8 +50,5 @@ export function getStore() {
 }
 
 export function getHistory() {
-  if(!storeElements.history) {
-    configureStore();
-  }
   return storeElements.history;
 }
