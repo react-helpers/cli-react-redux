@@ -20,8 +20,9 @@ async function replacePlaceHolders(filePath, name) {
 
 async function indexJs(name) {
   try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'index.js');
-    await fs.copy(path.join(cliDir, 'templates', 'index'), filePath);
+    const filePath = path.join('', 'src', 'containers', name.toLowerCase(), 'index.js');
+    const originalFile = path.join(cliDir, 'templates', 'index');
+    await fs.copy(originalFile, filePath);
     await replacePlaceHolders(filePath, name);
   } catch (error) {
     console.error(error);
@@ -46,7 +47,7 @@ async function indexComponentJs(name) {
     const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), `${Name}.js`);
     await fs.copy(
       path.join(cliDir, 'templates', 'IndexComponent'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
   } catch (error) {
@@ -61,7 +62,7 @@ async function indexComponentTestJs(name) {
     const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', `${Name}.test.js`);
     await fs.copy(
       path.join(cliDir, 'templates', 'IndexComponent.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
   } catch (error) {
@@ -75,7 +76,7 @@ async function reducerJs(name) {
     const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'reducer.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'reducer'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
   } catch (error) {
@@ -89,7 +90,7 @@ async function reducerTestJs(name) {
     const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'reducer.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'reducer.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
   } catch (error) {

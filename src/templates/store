@@ -22,7 +22,7 @@ export const rdx = {
   createStore,
   rootReducer,
   rootSaga,
-}
+};
 
 export default function configureStore() {
   rdx.history = rdx.createHistory();
