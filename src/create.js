@@ -18,348 +18,233 @@ async function replacePlaceHolders(filePath, name) {
   await fs.writeFile(filePath, result, 'utf8');
 }
 
-async function indexJs(name) {
-  try {
-    const filePath = path.join('', 'src', 'containers', name.toLowerCase(), 'index.js');
-    const originalFile = path.join(cliDir, 'templates', 'index');
-    await fs.copy(originalFile, filePath);
-    await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
+function dirName(name) {
+  return name.toLowerCase();
+  // const nameArg = name.replace(/[^0-9a-z]/gi, '');
+  // const firstLetter = nameArg[0];
+  // const partName = nameArg.slice(1).replace(/([A-Z])/g, '-$1').trim().toLowerCase();
+  // const dirName = (`${firstLetter}${partName}`.toLowerCase());
+  // return dirName;
 }
-module.exports.indexJs = indexJs;
 
-async function indexTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'index.test.js');
+module.exports = {
+  indexJs: async (name) => {
+    const filePath = path.join('', 'src', 'containers', dirName(name), 'index.js');
+    await fs.copy(path.join(cliDir, 'templates', 'index'), filePath);
+    await replacePlaceHolders(filePath, name);
+  },
+
+  indexTestJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', 'index.test.js');
     await fs.copy(path.join(cliDir, 'templates', 'index.test'), filePath);
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.indexTestJs = indexTestJs;
+  },
 
-async function indexComponentJs(name) {
-  try {
+  indexComponentJs: async (name) => {
     const Name = name[0].toUpperCase() + name.slice(1);
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), `${Name}.js`);
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), `${Name}.js`);
     await fs.copy(
       path.join(cliDir, 'templates', 'IndexComponent'),
       filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.indexComponentJs = indexComponentJs;
+  },
 
-async function indexComponentTestJs(name) {
-  try {
+  indexComponentTestJs: async (name) => {
     const Name = name[0].toUpperCase() + name.slice(1);
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', `${Name}.test.js`);
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', `${Name}.test.js`);
     await fs.copy(
       path.join(cliDir, 'templates', 'IndexComponent.test'),
       filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.indexComponentTestJs = indexComponentTestJs;
+  },
 
-async function reducerJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'reducer.js');
+  reducerJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), 'reducer.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'reducer'),
       filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.reducerJs = reducerJs;
+  },
 
-async function reducerTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'reducer.test.js');
+  reducerTestJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', 'reducer.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'reducer.test'),
       filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.reducerTestJs = reducerTestJs;
+  },
 
-async function sagaJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'sagas.js');
+  sagaJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), 'sagas.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'sagas'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.sagaJs = sagaJs;
+  },
 
-async function sagaTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'sagas.test.js');
+  sagaTestJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', 'sagas.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'sagas.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.sagaTestJs = sagaTestJs;
+  },
 
-async function actionTypesJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'actionTypes.js');
+  actionTypesJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), 'actionTypes.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'actionTypes'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.actionTypesJs = actionTypesJs;
+  },
 
-async function actionTypesTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'actionTypes.test.js');
+  actionTypesTestJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', 'actionTypes.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'actionTypes.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.actionTypesTestJs = actionTypesTestJs;
+  },
 
-async function selectorsJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), 'selectors.js');
+  selectorsJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), 'selectors.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'selectors'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.selectorsJs = selectorsJs;
+  },
 
-async function selectorsTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src', 'containers', name.toLowerCase(), '__tests__', 'selectors.test.js');
+  selectorsTestJs: async (name) => {
+    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', 'selectors.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'selectors.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.selectorsTestJs = selectorsTestJs;
+  },
 
-async function rootReducerJs(name) {
-  try {
+  rootReducerJs: async (name) => {
     const filePath = path.join(pwd, 'src', 'rootReducer.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'rootReducer'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.rootReducerJs = rootReducerJs;
+  },
 
-async function rootReducerTestJs(name) {
-  try {
+  rootReducerTestJs: async (name) => {
     const filePath = path.join(pwd, 'src', '__tests__', 'rootReducer.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'rootReducer.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.rootReducerTestJs = rootReducerTestJs;
+  },
 
-async function rootSagaJs(name) {
-  try {
+  rootSagaJs: async (name) => {
     const filePath = path.join(pwd, 'src', 'rootSaga.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'rootSaga'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.rootSagaJs = rootSagaJs;
+  },
 
-async function rootSagaTestJs(name) {
-  try {
+  rootSagaTestJs: async (name) => {
     const filePath = path.join(pwd, 'src', '__tests__', 'rootSaga.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'rootSaga.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.rootSagaTestJs = rootSagaTestJs;
+  },
 
-async function storeJs(name) {
-  try {
+  storeJs: async (name) => {
     const filePath = path.join(pwd, 'src', 'store.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'store'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.storeJs = storeJs;
+  },
 
-async function storeTestJs(name) {
-  try {
-    const filePath = path.join(pwd, 'src',  '__tests__', 'store.test.js');
+  storeTestJs: async (name) => {
+    const filePath = path.join(pwd, 'src', '__tests__', 'store.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'store.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.storeTestJs = storeTestJs;
+  },
 
-async function navigatorJs(name) {
-  try {
+  navigatorJs: async (name) => {
     const filePath = path.join(pwd, 'src', 'Navigator.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'Navigator'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.navigatorJs = navigatorJs;
+  },
 
-async function navigatorTestJs(name) {
-  try {
+  navigatorTestJs: async (name) => {
     const filePath = path.join(pwd, 'src', '__tests__', 'Navigator.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'Navigator.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.navigatorTestJs = navigatorTestJs;
+  },
 
-async function appJs(name) {
-  try {
+  appJs: async (name) => {
     const filePath = path.join(pwd, 'src', 'App.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'App'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.appJs = appJs;
+  },
 
-async function appTestJs(name) {
-  try {
+  appTestJs: async (name) => {
     const filePath = path.join(pwd, 'src', '__tests__', 'App.test.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'App.test'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.appTestJs = appTestJs;
+  },
 
-async function e2eTestJs(name) {
-  try {
+  e2eTestJs: async (name) => {
     const Name = name[0].toUpperCase() + name.slice(1);
     const filePath = path.join(pwd, 'e2e', 'local', `${Name}.spec.js`);
     await fs.copy(
       path.join(cliDir, 'templates', 'e2e.spec'),
-      filePath,
+      filePath
     );
     await replacePlaceHolders(filePath, name);
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.e2eTestJs = e2eTestJs;
+  },
 
-async function WebdriverIOLocalConf() {
-  try {
+  WebdriverIOLocalConf: async () => {
     const filePath = path.join(pwd, 'e2e', 'local', 'wdio.local.conf.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'wdio.local.conf.js'),
-      filePath,
+      filePath
     );
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.WebdriverIOLocalConf = WebdriverIOLocalConf;
+  },
 
-async function setupTestsJs() {
-  try {
+  setupTestsJs: async () => {
     const filePath = path.join(pwd, 'src', 'setupTests.js');
     await fs.copy(
       path.join(cliDir, 'templates', 'setupTests.js'),
-      filePath,
+      filePath
     );
-  } catch (error) {
-    console.error(error);
-  }
-}
-module.exports.setupTestsJs = setupTestsJs;
+  },
+};
