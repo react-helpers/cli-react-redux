@@ -16,8 +16,6 @@ function createContainer() {
   create.indexTestJs(nameArg);
   create.indexComponentJs(nameArg);
   create.indexComponentTestJs(nameArg);
-  create.actionTypesJs(nameArg);
-  create.actionTypesTestJs(nameArg);
   create.reducerJs(nameArg);
   create.reducerTestJs(nameArg);
   create.sagaJs(nameArg);

@@ -48,18 +48,19 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}",
-      "!src/index.js",
-      "!src/i18n/index.js",
-      "!src/registerServiceWorker.js",
-      "!src/config.js"
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/src/registerServiceWorker.js"
     ],
     "coverageThreshold": {
       "global": {
         "branches": 100,
         "functions": 100,
         "lines": 100,
-        "statements": -10
+        "statements": 0
       }
     },
     "testMatch": [

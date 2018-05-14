@@ -99,20 +99,26 @@ $ yarn add axios redux redux-saga react-redux reselect history react-router-dom 
 Add the following lines to `package.json` for code coverage
 ```js
 "jest": {
-  "collectCoverageFrom": [
-    "src/**/*.{js,jsx,mjs}",
-    "!src/index.js",
-    "!src/registerServiceWorker.js"
-  ],
-  "coverageThreshold": {
-    "global": {
-      "branches": 100,
-      "functions": 100,
-      "lines": 100,
-      "statements": -10
-    }
-  }
-}
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/src/registerServiceWorker.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 0
+      }
+    },
+    "setupFiles": [
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/config/polyfills.js"
+    ],
 ```
 
 Run unit tests

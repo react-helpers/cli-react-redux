@@ -1,4 +1,8 @@
-import * as actionType from './actionTypes';
+export const actionType = {
+  FETCH_DATA_ASYNC: 'home/FETCH_DATA_ASYNC',
+  FETCH_DATA_SUCCESS: 'home/FETCH_DATA_SUCCESS',
+  FETCH_DATA_FAILURE: 'home/FETCH_DATA_FAILURE',
+};
 
 const initialState = {
   data: {},
