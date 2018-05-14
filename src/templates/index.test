@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import * as actionType from '../actionTypes';
+import { actionType } from '../reducer';
 import '<NameOf>', { mapStateToProps, mapDispatchToProps } from '../index';
 
 // yarn test ./src/containers/'<nameof>'/__tests__/index.test.js --coverage

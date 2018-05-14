@@ -96,24 +96,6 @@ module.exports = {
     await replacePlaceHolders(filePath, name);
   },
 
-  actionTypesJs: async (name) => {
-    const filePath = path.join(pwd, 'src', 'containers', dirName(name), 'actionTypes.js');
-    await fs.copy(
-      path.join(cliDir, 'templates', 'actionTypes'),
-      filePath
-    );
-    await replacePlaceHolders(filePath, name);
-  },
-
-  actionTypesTestJs: async (name) => {
-    const filePath = path.join(pwd, 'src', 'containers', dirName(name), '__tests__', 'actionTypes.test.js');
-    await fs.copy(
-      path.join(cliDir, 'templates', 'actionTypes.test'),
-      filePath
-    );
-    await replacePlaceHolders(filePath, name);
-  },
-
   selectorsJs: async (name) => {
     const filePath = path.join(pwd, 'src', 'containers', dirName(name), 'selectors.js');
     await fs.copy(

@@ -1,5 +1,4 @@
-import '<nameOf>'Reducer from '../reducer';
-import * as actionType from '../actionTypes';
+import '<nameOf>'Reducer, { actionType } from '../reducer';
 
 // yarn test ./src/containers/'<nameof>'/__tests__/reducer.test.js --coverage
 describe('<'<NameOf>' /> reducer', () => {

@@ -1,6 +1,6 @@
 {
   "name": "cli-react-redux",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "description": "React Redux CLI",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "Sagas",
     "Reselect"
   ],
-  "author": "sandermets0@gmail.com",
+  "author": "Sander Mets <sandermets0@gmail.com> (https://bitbucket.org/sandermets)",
   "contributors": [
     "Kaspar Vihm <kaspar.vihm@gmail.com> (https://github.com/kasparvihm)"
   ],
@@ -48,18 +48,19 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}",
-      "!src/index.js",
-      "!src/i18n/index.js",
-      "!src/registerServiceWorker.js",
-      "!src/config.js"
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/src/registerServiceWorker.js"
     ],
     "coverageThreshold": {
       "global": {
         "branches": 100,
         "functions": 100,
         "lines": 100,
-        "statements": -10
+        "statements": 0
       }
     },
     "testMatch": [

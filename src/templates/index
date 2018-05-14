@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import * as actionType from './actionTypes';
+import { actionType } from './reducer';
 import * as selector from './selectors';
 import '<NameOf>' from './'<NameOf>'';
 
