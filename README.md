@@ -93,7 +93,13 @@ _For now reducer and saga have to be added manually to `rootReducer.js` and `roo
 Add required dependencies
 
 ```sh
-$ yarn add axios redux redux-saga react-redux reselect history react-router-dom react-router-redux@next enzyme enzyme-adapter-react-16
+$ yarn add axios redux redux-saga react-redux reselect history react-router-dom connected-react-router enzyme enzyme-adapter-react-16
+```
+
+or (in case you use `npm` instead of `yarn`)
+
+```sh
+$ npm i axios redux redux-saga react-redux reselect history react-router-dom connected-react-router enzyme enzyme-adapter-react-16
 ```
 
 Add the following lines to `package.json` for code coverage

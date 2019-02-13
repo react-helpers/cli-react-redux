@@ -1,6 +1,6 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router'
 import createHistory from 'history/createBrowserHistory'; // eslint-disable-line
 import rootReducer from './rootReducer';
 import rootSaga from './rootSaga';
@@ -47,7 +47,7 @@ export default function configureStore() {
   );
 
   rdx.store = rdx.createStore(
-    rdx.rootReducer(),
+    rdx.rootReducer(rdx.history),
     rdx.initialState,
     rdx.composedEnhancers,
   );
