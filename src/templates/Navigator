@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { getHistory } from './store';
