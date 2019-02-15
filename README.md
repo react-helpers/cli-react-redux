@@ -73,11 +73,6 @@ $ rm App.js
 $ rm App.test.js
 ```
 
-It is recommended to install yarn
-```sh
-$ npm i -g yarn
-```
-
 Create the main container
 
 ```sh
@@ -91,12 +86,6 @@ $ npx cli-react-redux create container Second
 _For now reducer and saga have to be added manually to `rootReducer.js` and `rootSaga.js`._
 
 Add required dependencies
-
-```sh
-$ yarn add axios redux redux-saga react-redux reselect history react-router-dom connected-react-router enzyme enzyme-adapter-react-16
-```
-
-or (in case you use `npm` instead of `yarn`)
 
 ```sh
 $ npm i axios redux redux-saga react-redux reselect history react-router-dom connected-react-router enzyme enzyme-adapter-react-16
@@ -118,7 +107,7 @@ Add the following lines to `package.json` for code coverage
         "branches": 100,
         "functions": 100,
         "lines": 100,
-        "statements": 0
+        "statements": 100
       }
     },
     "setupFiles": [
@@ -129,19 +118,18 @@ Add the following lines to `package.json` for code coverage
 
 Run unit tests
 ```sh
-yarn test --coverage
+npm test --coverage
 ```
 
 Run
 ```sh
-yarn start
+npm start
 ```
 
 ### e2e aka UI tests
 
-There is also a UI test generated while creating a container. Test resides in e2e folder along with wdio conf file. We're using mocha as a testrunner, hence there's mocha timeout option set. See [webdriver.io](http://webdriver.io/guide.html) for more information hot to run and set up UI tests.
+There's UI test generated when creating container. Test resides in e2e folder along with wdio conf file. We're using mocha as a testrunner, hence there's mocha timeout option set. See [webdriver.io](http://webdriver.io/guide.html) for more information hot to run and set up UI tests.
 
-If you are fan of testing and QA and would want to know more about available testing technologies and patterns then take a look [An Overview of Javascript Testing in 2018](https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2018-f68950900bc3)
 ## Licence
 
 Licensed under the MIT license.
